@@ -37,4 +37,4 @@ get_header();?>
 	</div>
 </div><!-- #container -->
 <?php
-get_footer(); /*footer*/
+get_footer();

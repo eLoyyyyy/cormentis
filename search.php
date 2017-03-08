@@ -12,8 +12,7 @@ get_header(); ?>
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
 			<section id="primary" class="content-area">
-				<main id="main" class="site-main" role="main">
-
+				<main id="main" class="site-main search" role="main">
 				<?php
 				if ( have_posts() ) : ?>
 
@@ -46,8 +45,7 @@ get_header(); ?>
 			</section><!-- #primary -->
 		</div><!-- #col -->
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			sidebar search
-			<?php //get_sidebar(); /*Sidebar*/ ?>
+			<?php get_sidebar();?>
 		</div>
 	</div><!-- #row -->
 </div><!-- #container -->
