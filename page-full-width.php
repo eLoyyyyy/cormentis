@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: Full Width
  * The template for displaying all pages
  *
  * This is the template that displays all pages by default.
@@ -15,7 +16,7 @@
 get_header(); ?>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 
@@ -30,9 +31,6 @@ get_header(); ?>
 				</main><!-- #main -->
 			</div><!-- #primary -->
 		</div><!-- .col -->
-		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<?php get_sidebar(); ?>
-		</div>
 	</div><!-- .row -->
 </div><!-- .container -->
 

@@ -114,3 +114,41 @@ function cormentis_category_transient_flusher() {
 }
 add_action( 'edit_category', 'cormentis_category_transient_flusher' );
 add_action( 'save_post',     'cormentis_category_transient_flusher' );
+
+
+
+function cormentis_pre_post_meta(){?>
+    <header class="genpost-entry-header">
+        <link itemprop="mainEntityOfPage" href="<?php echo esc_url( get_permalink() );?>" />
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><?php ; ?>
+            <link itemprop="url" href="<?php echo get_author_posts_url( the_author_meta( 'ID' ) ); ?>">
+            <meta itemprop="name" content="<?php the_author(); ?>">
+        </span>
+        <meta itemprop="datePublished" content="<?php the_time('c'); ?> ">
+        <meta itemprop="dateModified" content="<?php the_modified_time('c'); ?>">
+        <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <?php $logo = get_theme_mod( 'site_logo', '' );
+            if ( !empty($logo) ) : ?>
+            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <meta itemprop="url" content="<?php echo esc_url( $logo ); ?>">
+            </span>
+            <?php endif; ?>
+            <meta itemprop="name" content="<?php bloginfo( 'name' ); ?>">
+        </span>
+        <?php the_title( '<h1 class="single-title entry-title">', '</h1>' ); ?>
+    		<div class="entry-meta">
+    			<?php cormentis_posted_on(); ?>
+    		</div><!-- .entry-meta -->
+    </header>
+<?php
+}
+
+
+/**
+ * Remove 'hentry' from post_class()
+ */
+function cormentis_remove_hentry( $class ) {
+	$class = array_diff( $class, array( 'hentry' ) );
+	return $class;
+}
+add_filter( 'post_class', 'cormentis_remove_hentry' );

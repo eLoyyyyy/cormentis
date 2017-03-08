@@ -167,4 +167,14 @@ require get_template_directory() . '/inc/widgets/widgets.php';
 /**
 * Events (custom post type)
 */
-require get_template_directory() . '/inc/events.php';
+//require get_template_directory() . '/inc/events.php';
+
+/**
+* Breadcrumbs
+*/
+require get_template_directory() . '/inc/breadcrumbs.php';
+
+/**
+* Comments
+*/
+require get_template_directory() . '/inc/wp_bootstrap_comments.php';

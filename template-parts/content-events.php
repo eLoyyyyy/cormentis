@@ -16,35 +16,8 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<em>Details</em>
-			</div>
-			<div class="panel-body">
-				<ul class="list-unstyled">
-	        <li itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <a itemprop="url" href="<?php the_permalink(); ?>">
-						<p>From:
-							<?php $start_date = date( 'Y-m-d H:i:s', get_post_meta( get_the_ID(), 'events_startdate', true ) ); ?>
-            	<span itemprop="validFrom" content="<?php echo get_date_from_gmt( $start_date, 'c' ); ?>"><?php echo get_date_from_gmt( $start_date, 'F j, Y' ); ?></span>
-						</p>
-						<p>To:
-							<?php $end_date = date( 'Y-m-d H:i:s', get_post_meta( get_the_ID(), 'events_enddate', true ) ); ?>
-            	<span itemprop="validTo" content="<?php echo get_date_from_gmt( $end_date, 'c' ); ?>"><?php echo get_date_from_gmt( $end_date, 'F j, Y' ); ?></span>
-						</p>
-          </li>
-	      </ul>
-			</div>
-		</div>
 		<?php
-			echo '<pre>' . print_r( get_post_meta( get_the_ID() ) ) . '</pre>';
-
 			the_content();
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cormentis' ),
-				'after'  => '</div>',
-			) );
 		?>
 	</div><!-- .entry-content -->
 

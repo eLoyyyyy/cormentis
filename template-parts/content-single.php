@@ -7,14 +7,8 @@
  * @package cormentis
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'cm-article' ); ?> >
-	<header class="entry-header">
-		<?php the_title( '<h1 class="single-title entry-title">', '</h1>' ); ?>
-		<div class="entry-meta">
-			<?php cormentis_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
-
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'cm-article' ); ?> itemprop="mainEntity" itemscope itemtype="http://schema.org/Article" >
+	<?php cormentis_pre_post_meta(); ?>
 	<div class="entry-content">
 		<?php
 			the_content();
