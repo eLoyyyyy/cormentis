@@ -12,9 +12,9 @@ require get_template_directory() . '/inc/resets.php';
 
 
 if ( ! function_exists( 'cormentis_setup' ) ) :
-	
+
 	function cormentis_setup(){
-	
+
 	/*
 	* Make theme available for translation.
 	* Translations can be filed in the /languages/ directory.
@@ -99,7 +99,7 @@ function cormentis_scripts(){
 
 	//Enqueue Font-awesome
 	wp_enqueue_style('fontawesome', get_template_directory_uri() . '/css/font-awesome.css', array(), '4.7.0');
-	
+
 	//Enqueue Unslider
 	wp_enqueue_style('unslider', get_template_directory_uri() . '/css/unslider.css', array() , '20172102' );
 
@@ -120,7 +120,7 @@ function cormentis_scripts(){
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}	
+	}
 
 }
 add_action( 'wp_enqueue_scripts', 'cormentis_scripts' );
@@ -136,7 +136,7 @@ add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
 */
 
 function cormentis_nav_menu(){
-	wp_nav_menu( array( 
+	wp_nav_menu( array(
 		'theme-location' => 'primary-menu',
 		'menu' 	=> 'main_nav',
 		'menu_class' => 'nav navbar-nav navbar-right',
@@ -168,12 +168,6 @@ require get_template_directory() . '/inc/template-tags.php';
 * Register Widgets
 */
 require get_template_directory() . '/inc/widgets/widgets.php';
-
-
-/**
-* Events (custom post type)
-*/
-//require get_template_directory() . '/inc/events.php';
 
 /**
 * Breadcrumbs
