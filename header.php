@@ -17,51 +17,53 @@
 </head>
 <body <?php body_class(); ?> >
 	<?php 		
-		/*$naSiteHeader = "cm-site-header";
+		$naSiteHeader = "cm-site-header";
 		$navWrap = "cm-site-nav-wrap";
 
 		if( is_front_page() ){
-			$naSiteHeader = "cm-header";
+			$naSiteHeader = "cm-header cm-bg-wrap";
 			$navWrap = "cm-nav-wrap";
-		}*/
 
-			$naSiteHeader = "cm-site-header";
-			$navWrap = "cm-site-nav-wrap";
+			$wrap = "";
+			$wrap .= '<div class="container">';
+				$wrap .= '<div class="cm-motive-wrap">';
+					$wrap .= '<h1 class="cm-motive">Empowering People’s <span class="cm-italic">Character</span> for Competence &amp; Excellence.</h1>';
+				$wrap .= '</div>';
+			$wrap .='</div>';
+
+
+		}
 	?>
 	<header class="<?php echo $naSiteHeader; ?>" role="banner">
-		<div >
-			<nav class="<?php echo $navWrap; ?> navbar-default navbar-custom" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cm-nav">
-							<span class="sr-only">Cormentis Toggle</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="cm-site-logo">
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" role="home"><?php bloginfo( 'name' ); ?></a></h1>	
-							<?php 
-								$description = get_bloginfo( 'description', 'display' );
-								if ( $description || is_customize_preview() ) : ?>
-								<p class="site-description"><?php echo $description; /* WPCS: xss ok. */  ?></p>
-							<?php endif; ?>
-						</div>
-					</div>
-					<div id="cm-nav" class="collapse navbar-collapse">
-						<!-- <ul class="nav navbar-nav navbar-right">
-							<li><a href="#@about">About</a></li>
-							<li><a href="#@events">Events</a></li>
-							<li><a href="#@our-team">Our Team</a></li>
-							<li><a href="#@service">Service</a></li>
-							<li><a href="#@blog">Blog</a></li>
-						</ul> -->
-						<?php if( has_nav_menu( 'primary-menu' ) ) : 
-							cormentis_nav_menu();
-						endif; ?>
-
+		<?php if( is_front_page() ) : ?>
+			<div class="cm-nav-trans"></div>
+		<?php endif;?>
+		<nav class="<?php echo $navWrap; ?> navbar-default navbar-custom" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cm-nav">
+						<span class="sr-only">Cormentis Toggle</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="cm-site-logo">
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" role="home" class="navbar-brand"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php 
+							$description = get_bloginfo( 'description', 'display' );
+							if ( $description || is_customize_preview() ) : ?>
+							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */  ?></p>
+						<?php endif; ?>
 					</div>
 				</div>
-			</nav>
-		</div>
+				<div id="cm-nav" class="collapse navbar-collapse">
+					<?php if( has_nav_menu( 'primary-menu' ) ) : 
+						cormentis_nav_menu();
+					endif; ?>
+
+				</div>
+			</div>
+		</nav>
+		
+		<?php echo $wrap;?>
 	</header>
