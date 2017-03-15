@@ -34,7 +34,13 @@ if ( ! function_exists( 'cormentis_setup' ) ) :
 		* provide it for us.
 		*/
 		add_theme_support( 'title-tag' );
-
+		
+		/*
+		* Add Custom Logo Support
+		*/
+		add_theme_support( 'custom-logo' );
+		
+		
 		/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
@@ -145,6 +151,19 @@ function cormentis_nav_menu(){
 		'depth'	=> 2,
 		'walker' => new wp_custom_menu_walker() /* custom walker */
 	) );
+}
+
+/**
+*Custom Logo
+*
+*@link https://codex.wordpress.org/Theme_Logo
+*/
+function simple_bootstrap_custom_logo() {
+	
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
+	}
+
 }
 
 
