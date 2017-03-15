@@ -16,7 +16,10 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
-	<?php 		
+	<?php 
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$image = wp_get_attachment_image( $custom_logo_id , 'full' );
+	
 		$naSiteHeader = "cm-site-header";
 		$navWrap = "cm-site-nav-wrap";
 
@@ -48,11 +51,17 @@
 						<span class="icon-bar"></span>
 					</button>
 					<div class="cm-site-logo">
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" role="home" class="navbar-brand"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php 
-							$description = get_bloginfo( 'description', 'display' );
-							if ( $description || is_customize_preview() ) : ?>
-							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */  ?></p>
+						
+						<?php if ( function_exists( 'get_custom_logo' )  && has_custom_logo() ) : ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" role="home" class="navbar-brand"><?php echo $image; ?></a>
+						<?php else: ?>
+
+							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" role="home" class="navbar-brand"><?php bloginfo( 'name' ); ?></a></h1>
+							<?php 
+								$description = get_bloginfo( 'description', 'display' );
+								if ( $description || is_customize_preview() ) : ?>
+								<p class="site-description"><?php echo $description; /* WPCS: xss ok. */  ?></p>
+							<?php endif; ?>
 						<?php endif; ?>
 					</div>
 				</div>
